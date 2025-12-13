@@ -1,4 +1,4 @@
-title: // commentary
+title: // commentary by boris
 author: Boris Bi
 url: https://robocall.github.io/
 description: > # description of the site (multiple lines allowed)
@@ -19,10 +19,10 @@ theme_config:
   date_format: "%Y-%m-%d" # customize how date is formatted
   show_description: true # show blog description
   show_navbar: true # show horizontal navbar
-  show_footer: true # show footer links in home page,add in _data/home.yml
+  show_footer: false # show footer links in home page,add in _data/home.yml
   show_copyright: true # show copyright notice in footer
   # following keys are using to create home layout
-  show_projects: true # show projects as cards, add in _data/home.yml
+  show_projects: false # show projects as cards, add in _data/home.yml
   show_blog: true # show blog posts added in _posts
   show_misc_list: false # show generic vertical list for misc details, add _data/home.yml
   show_reading_time: true # show number of words and reading time in the blog posts
