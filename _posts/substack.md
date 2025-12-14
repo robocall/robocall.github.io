@@ -1,0 +1,56 @@
+---
+layout: post
+title: roleplaying the founding of substack
+date: 2025-12-14
+tags: [product, fiction]
+---
+
+orange: guys. we need to make money. we gotta start a startup.
+
+blue: yeah. i like money. but what do we make?
+
+orange: we need to exploit someone. i mean, sorry, we need to look for an *opportunity.*
+
+blue: what about… *rolls dice* AI for dogs?
+
+orange: reroll.
+
+blue: scalable databases for gen z?
+
+orange: ...
+
+blue: autonomous driving for nascar? uber for lyft drivers? functioning bay area public transit?
+
+*orange snatches the dice from blue.*
+
+orange: you're doing it wrong. *shakes dice for a long time.*  how about … onlyfans for writers?
+
+blue: yeah! writers are always desperate to make money, right?
+
+orange: yeah, but they only want to make money off of their *writing*. 
+
+blue: so, maybe people could subscribe to them to see things they write versus pictures they take?
+
+orange: *cackles, rubbing hands together* yeah, and writers can charge a *subscription fee*.  
+
+blue: *eyes lights up* fee means money!
+
+orange: yes..and once it takes off, then we'll take a cut of their subscription profits. at first we'll keep it small, like 10% or something. just like effective altruists. we're basically altruists too. then when they're comfortable with that, we'll raise it slowly. 25%. 50%.
+
+blue: but if we go too high, won't the writers move off of our platform?
+
+orange: not if we make them dependent on us. we'll accidentally turn off the ability to export their posts and followers. we'll make them agree to not get money from their readers outside of substack. maybe we'll even threaten to delete their writing or suspend their account if they post about their new blog.
+
+and anyway, where would they go? back to the stone age of hosting their own blog and making ZERO money? when they could stick with us and make *nonzero* money?
+
+lawyer: *suddenly appears in a puff of smoke* hey guys! we'll say we technically don't "own" their work, but we can make it so we can modify their work without their permission! or make it impossible for them to delete their posts! for now, we'll just say it's for some legit reason, but we just *happened* to put "worldwide, nonexclusive, sublicensable, royalty-free, fully paid-up, transferable rights to use, access, and download”...
+
+blue, again, not understanding anything the lawyer said: fee means money!
+
+orange, *getting more excited:* and the more writers there are on our platform, the more readers will also sign up - to follow writers they already know. and then we'll help the readers discover other writers on our platform. we'll become *the place for blogs*. it's like how people don't know how to get anywhere with paper maps now. what would people read if they didn't have their substack feed? read a shampoo bottle label on the toilet? read a *book*? 
+
+blue: sick. i'll call paul graham and my yacht salesman tomorrow. we're gonna be rich.
+
+—-
+
+this is satire.

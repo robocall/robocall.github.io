@@ -5,23 +5,16 @@
 @import "list";
 @import "syntax";
 
-/* Import JetBrains Mono as fallback */
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+/* Import Google Sans Code */
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@400;700&display=swap');
 
-/* Custom font: Comic Mono */
-@font-face {
-  font-family: 'Comic Mono';
-  src: url('https://cdn.jsdelivr.net/gh/dtinth/comic-mono-font@master/ComicMono.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-/* Override body font with Comic Mono, fallback to JetBrains Mono */
+/* Override body font with Google Sans Code */
 body {
-  font-family: "Comic Mono", "JetBrains Mono", monospace;
+  font-family: "Google Sans Code", monospace;
 }
 
-/* Override code/monospace font with Comic Mono, fallback to JetBrains Mono */
+/* Override code/monospace font with Google Sans Code */
 pre, code {
-  font-family: "Comic Mono", "JetBrains Mono", monospace;
+  font-family: "Google Sans Code", monospace;
 }
+
