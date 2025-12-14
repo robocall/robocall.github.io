@@ -4,3 +4,24 @@
 @import "moonwalk";
 @import "list";
 @import "syntax";
+
+/* Import JetBrains Mono as fallback */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+
+/* Custom font: Comic Mono */
+@font-face {
+  font-family: 'Comic Mono';
+  src: url('https://cdn.jsdelivr.net/gh/dtinth/comic-mono-font@master/ComicMono.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Override body font with Comic Mono, fallback to JetBrains Mono */
+body {
+  font-family: "Comic Mono", "JetBrains Mono", monospace;
+}
+
+/* Override code/monospace font with Comic Mono, fallback to JetBrains Mono */
+pre, code {
+  font-family: "Comic Mono", "JetBrains Mono", monospace;
+}
