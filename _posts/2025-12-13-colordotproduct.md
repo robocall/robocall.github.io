@@ -27,6 +27,7 @@ Below are examples:
 
 <div style="position: relative; display: inline-block;">
 
+<div style="display:flex;gap:20px">
 <canvas id="vectorMap" width="256" height="256"></canvas>
 <svg id="vectorSVG" width="256" height="256"
   style="position: absolute; top: 0; left: 0; pointer-events: none;"></svg>
@@ -43,6 +44,7 @@ Below are examples:
       contrast</button>
 </div>
 
+</div>
 
   <div id="exampleDisplay" style="margin-top: 10px; padding: 10px; min-height: 50px; background: transparent;"></div>
 </div>
