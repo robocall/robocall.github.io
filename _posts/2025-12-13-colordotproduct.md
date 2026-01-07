@@ -1,6 +1,6 @@
 ---
 layout: post
-title: a failed attempt at using vector calculus for color spaces
+title: why you can't use vector calculus for color spaces
 date: 2025-12-08
 tags: [code, interactive]
 ---
