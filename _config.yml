@@ -8,14 +8,14 @@ permalink: /:slug
 
 favicon: "/slashlogo.png" # tab / PWA icon (root file)
 
+# Ensure we don't implicitly load a gem theme.
+theme: null
+
 # Local theme (no remote_theme)
 date_format: "%Y-%m-%d"
 show_reading_time: true
 show_tags: true
 back_home_text: "cd .."
-
-soopr:
-  publish_token: "" # sign up at https://www.soopr.co to get your publish token and personalize share and reaction options
 
 highlighter: rouge
 
@@ -24,4 +24,4 @@ sass:
 
 plugins:
   - jekyll-feed
-  - jekyll-soopr-seo-tag
+  - jekyll-seo-tag

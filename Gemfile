@@ -1,4 +1,5 @@
-# frozen_string_literal: true
-
 source "https://rubygems.org"
-gemspec
+
+# Use the same dependency set GitHub Pages uses.
+gem "github-pages", group: :jekyll_plugins
+
