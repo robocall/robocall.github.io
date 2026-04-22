@@ -12,7 +12,7 @@ title: Portfolio
   img="/assets/portfolio/cli-translate.png"
   alt="Book translation CLI"
   tags=cli_tags
-  desc="Python CLI to feed a text into a locally run LLM while preserving context. Built on top of Ollama. I authored both the code and docs."
+  desc="Python CLI to chunk and feed a text into a locally run LLM while preserving context. LLM is run locally via Ollama. I authored both the code and docs."
 %}
 
 
