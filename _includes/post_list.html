@@ -1,12 +1,11 @@
+{% assign df = site.date_format | default: "%Y-%m-%d" %}
 {% if site.posts.size > 0 %}
-  <ul>
+  <ol class="post-log">
     {% for post in site.posts %}
-      <li class="post-list-item">
-        <span class="home-date">
-          {{ post.date | date: site.theme_config.date_format }}»
-        </span>
-        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      <li class="post-log__row">
+        <span class="post-log__date">{{ post.date | date: df }}</span>
+        <a class="post-log__link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
       </li>
     {% endfor %}
-  </ul>
+  </ol>
 {% endif %}

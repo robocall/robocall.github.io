@@ -1,0 +1,27 @@
+{%- assign _title = include.title | default: "" -%}
+{%- assign _desc = include.desc | default: "" -%}
+{%- assign _img = include.img | default: "" -%}
+{%- assign _alt = include.alt | default: _title -%}
+{%- assign _url = include.url | default: "" -%}
+
+<div class="portfolio-item">
+  {%- if _img != "" -%}
+    <img class="portfolio-item__thumb" src="{{ _img | relative_url }}" alt="{{ _alt | escape }}">
+  {%- else -%}
+    <div class="portfolio-item__thumb portfolio-item__thumb--empty" aria-hidden="true"></div>
+  {%- endif -%}
+  <div class="portfolio-item__body">
+    <div class="portfolio-item__title">
+      {%- if _url != "" -%}
+        <strong><a class="portfolio-item__title-link" href="{{ _url }}">{{ _title }}</a></strong>
+      {%- else -%}
+        <strong>{{ _title }}</strong>
+      {%- endif -%}
+      {{ include.tags }}
+    </div>
+    <div class="portfolio-item__desc">
+      {{ _desc }}
+    </div>
+  </div>
+</div>
+

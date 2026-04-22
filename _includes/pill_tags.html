@@ -1,0 +1,13 @@
+{%- assign _raw = include.tags | default: "" -%}
+{%- assign _items = _raw | split: "|" -%}
+{%- if _items.size > 0 and _raw != "" -%}
+  <span class="tag-inline" aria-label="Tags">
+    {%- for t in _items -%}
+      {%- assign tt = t | strip -%}
+      {%- if tt != "" -%}
+        <span class="tag">{{ tt }}</span>
+      {%- endif -%}
+    {%- endfor -%}
+  </span>
+{%- endif -%}
+

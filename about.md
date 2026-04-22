@@ -1,10 +1,14 @@
 ---
-layout: post
+layout: page
 title: About
 ---
 
-Hi! I'm Boris Bi. I'm a software engineer and a reformed engineering manager.
-I like making things with {code, clay, edible materials} and understanding how things work.
+Hi! I'm JJ. I'm a software engineer, a reformed engineering manager, and sometimes {moral philosopher, writer, visual artist}.
+
+I'm looking for work! Contact me on [LinkedIn](https://www.linkedin.com/in/jjcodes/). I'm primarily looking for devrel/tech writing roles.
+{: .hiring-callout}
+
+----
 
 I'm currently thinking about:
 * how to use storytelling and interactive visualizations to explain technical subjects (I'm inspired by [Nicky Case](https://ncase.me/crowds/) and [Chris Olah](https://distill.pub/2018/building-blocks/))

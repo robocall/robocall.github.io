@@ -1,20 +1,5 @@
 ---
 ---
 
-@import "moonwalk";
-@import "list";
+@import "hardtech";
 @import "syntax";
-
-/* Import Google Sans Code */
-@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@400;700&display=swap');
-
-/* Override body font with Google Sans Code */
-body {
-  font-family: "Google Sans Code", monospace;
-}
-
-/* Override code/monospace font with Google Sans Code */
-pre, code {
-  font-family: "Google Sans Code", monospace;
-}
-

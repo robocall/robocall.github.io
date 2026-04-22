@@ -2,44 +2,29 @@
 layout: default
 ---
 
-<header>
-{% if site.theme_config.show_navbar == true %}
-  {% include horizontal_list.html collection=site.data.home.navbar_entries %}
-  <div class="dashed"></div>
-{% endif %}
-
-  <h1>{{ site.title }}</h1>
-  {% if site.theme_config.show_description == true %}
-    <p>{{ site.description }}</p>
+<header class="site-header site-header--home">
+  {% if site.data.home.navbar_entries %}
+    <nav class="site-nav site-nav--header-top" aria-label="Primary">
+      {% for item in site.data.home.navbar_entries %}
+        <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+      {% endfor %}
+      <a href="{{ '/feed.xml' | relative_url }}">rss</a>
+    </nav>
   {% endif %}
+  <div class="site-header__top">
+    <h1 class="site-title">
+      <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    </h1>
+  </div>
 </header>
 
-{{ content }}
-
-{% if site.theme_config.show_projects == true %}
-  <h2>{{ site.theme_config.home.title_projects }}</h2>
-  {% include card_list.html collection=site.data.home.project_entries %}
-{% endif %}
-
-{% if site.theme_config.show_misc_list == true %}
-  <h2>{{ site.theme_config.home.title_misc_list }}</h2>
-  {% include vertical_list.html collection=site.data.home.misc_entries %}
-{% endif %}
-
-{% if site.theme_config.show_blog == true %}
-  <h2>{{ site.theme_config.home.title_blog }}</h2>
-  {% include post_list.html %}
-{% endif %}
-
-{% if site.theme_config.show_old_projects == true %}
-  <h2>{{ site.theme_config.home.title_old_projects }}</h2>
-  {% include card_list.html collection=site.data.home.old_project_entries %}
-{% endif %}
-
-
-{% if site.theme_config.show_footer == true %}
-  <footer>
-    <div class="dashed"></div>
-    {% include horizontal_list.html collection=site.data.home.footer_entries %}
-  </footer>
-{% endif %}
+<main id="main" class="site-main">
+  {{ content }}
+  <section class="log" aria-labelledby="log-heading">
+    <h2 id="log-heading" class="site-prompt log-prompt">
+      <span class="site-prompt__user">jj</span><span class="site-prompt__at">@</span><span class="site-prompt__host">hostname</span><span class="site-prompt__path">:~/blog</span><span class="site-prompt__sym">$</span>
+      <span class="site-prompt__cmd">ls -l</span>
+    </h2>
+    {% include post_list.html %}
+  </section>
+</main>

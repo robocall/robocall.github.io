@@ -1,26 +1,19 @@
-<p class="post-date text-bold">
+{% assign df = site.date_format | default: "%Y-%m-%d" %}
+<div class="post-meta">
   {% if page.author %}
-    <span class="text-upcase">{{ page.author }}</span> / 
+    <span class="post-meta__author">{{ page.author }}</span>
+    <span class="post-meta__sep" aria-hidden="true">/</span>
   {% endif %}
   {% if page.date %}
-    <span class="text-upcase">{{ page.date | date: "%B %Y"}}</span>
+    <time class="post-meta__time" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: df }}</time>
   {% endif %}
-
-{% if site.theme_config.show_reading_time == true %}
-  {% capture words %}
-  {{ content | number_of_words | minus: 180 }}
-  {% endcapture %}
-  {% unless words contains '-' %}
-  {{ words | strip | prepend: '(' | append: ' Words, ' }}
-  {{ words | plus: 180 | divided_by: 180 | append: ' Minutes)' }}
-  {% endunless %}
-{% endif %}
-</p>
-
-{% if site.theme_config.show_tags == true %}
-  <div class="">
-    {% for tag in page.tags %}
-    <span class="tag">{{ tag }}</span>
-    {% endfor %}
-  </div>
-{% endif %}
+  {% if site.show_reading_time %}
+    {% capture words %}
+      {{ content | number_of_words | minus: 180 }}
+    {% endcapture %}
+    {% unless words contains '-' %}
+      <span class="post-meta__sep" aria-hidden="true">/</span>
+      <span class="post-meta__read">{{ words | strip }} words · {{ words | plus: 180 | divided_by: 180 }} min</span>
+    {% endunless %}
+  {% endif %}
+</div>
