@@ -1,0 +1,35 @@
+// Demo is wider than .site-shell (44rem). Center 52rem on the viewport so it
+// sticks out left and right of the post column (not just overflow to the right).
+.bouncing-balls {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 1rem;
+  width: 52rem;
+  max-width: calc(100vw - 2.7rem);
+  margin: 2rem 0;
+  margin-left: calc(
+    50vw - 26rem - (100vw - min(44rem, 100vw)) / 2 - 1.35rem
+  );
+  align-items: start;
+}
+
+.bouncing-balls #canvas-wrap-buggy {
+  grid-column: 1 / -1;
+}
+
+.bouncing-balls canvas {
+  display: block;
+  border-radius: 8px;
+}
+
+.bouncing-balls figure.highlight {
+  margin: 0;
+}
+
+@media (max-width: 720px) {
+  .bouncing-balls {
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+  }
+}

@@ -16,13 +16,9 @@ I wanted the sketch to show a simple ball that bounces off the edges of the canv
 
 On the right is the relevant p5.js code and on the left is the sketch working in the happy case. First, see if you can find the bug!
 
-<div class="bouncing-balls-t">
-  <div class="bouncing-balls-t__top">
-    <div class="bouncing-balls-t__demo">
-      <div id="canvas-wrap-square"></div>
-    </div>
-    <div class="bouncing-balls-t__code">
-{% highlight js linenos %}
+<div class="bouncing-balls">
+  <div id="canvas-wrap-square"></div>
+{%- highlight js linenos -%}
 function draw() {
   background(30, 32, 36);
 
@@ -47,16 +43,12 @@ function draw() {
   noStroke();
   circle(ball_position_x, ball_position_y, ball_radius * 2);
 }
-{% endhighlight %}
-    </div>
-  </div>
+{%- endhighlight -%}
+  <div id="canvas-wrap-buggy"></div>
 </div>
 
 As a hint, here's the unhappy case—the bug shows up on a wide, short canvas:
 
-<div class="bouncing-balls-t__bottom">
-  <div id="canvas-wrap-buggy"></div>
-</div>
 
 If you found the bug in line 15, you're right! The ball position should check against height, not width, in the y axis. 
 

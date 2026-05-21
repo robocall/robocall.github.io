@@ -358,10 +358,14 @@ body {
   margin-top: 0;
 }
 
+article.post,
+.post-body {
+  overflow-x: visible;
+}
+
 .post-body {
   font-size: 0.95rem;
   font-weight: 500;
-  overflow-x: visible;
 }
 
 .post-body .hiring-callout {
@@ -405,12 +409,29 @@ body {
 
 .post-body pre {
   padding: 0.85rem 1rem;
-  overflow-x: visible;
-  white-space: pre-wrap;
-  overflow-wrap: anywhere;
+  overflow-x: auto;
   border: 1px solid var(--line);
   border-radius: var(--r);
   background: var(--bg1);
+}
+
+// {% highlight %} wraps a table in an extra <pre> - don't double-style it
+.post-body figure.highlight {
+  margin: 1.25rem 0;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  background: var(--bg1);
+}
+
+.post-body figure.highlight pre {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+.post-body figure.highlight td:not(.gl) pre {
+  padding: 0.85rem 1rem 0.85rem 0.75rem;
 }
 
 .post-body code {
@@ -429,224 +450,5 @@ body {
   padding-left: 1rem;
   border-left: 2px solid var(--accent);
   color: var(--fg1);
-}
-
-// bouncing-balls post: square canvas + code side by side, wide bar below
-.bouncing-balls-t {
-  margin: 2rem 0;
-}
-
-.bouncing-balls-t__top {
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 1rem;
-  align-items: start;
-}
-
-.bouncing-balls-t__demo {
-  line-height: 0;
-}
-
-.bouncing-balls-t__demo canvas,
-.bouncing-balls-t__bottom canvas {
-  display: block;
-  border-radius: 8px;
-}
-
-.bouncing-balls-t__bottom {
-  margin-top: 1.25rem;
-  line-height: 0;
-}
-
-.bouncing-balls-t__code figure.highlight {
-  margin: 0;
-}
-
-// bouncing-balls post: square canvas + code side by side, wide bar below
-.bouncing-balls-t {
-  margin: 2rem 0;
-}
-
-.bouncing-balls-t__top {
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 1rem;
-  align-items: start;
-}
-
-.bouncing-balls-t__demo {
-  line-height: 0;
-}
-
-.bouncing-balls-t__demo canvas,
-.bouncing-balls-t__bottom canvas {
-  display: block;
-  border-radius: 8px;
-}
-
-.bouncing-balls-t__bottom {
-  margin-top: 1.25rem;
-  line-height: 0;
-}
-
-.bouncing-balls-t__code figure.highlight {
-  margin: 0;
-}
-
-// T-shaped layout - square left, code box shrink-wraps to draw() snippet
-.bouncing-balls-t {
-  width: 100%;
-  margin: 2rem 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-  overflow: visible;
-}
-
-.bouncing-balls-t__top {
-  display: grid;
-  grid-template-columns: 280px max-content;
-  gap: 1rem;
-  align-items: start;
-  width: fit-content;
-  max-width: none;
-}
-
-.bouncing-balls-t__demo {
-  line-height: 0;
-  width: 280px;
-  height: 520px;
-}
-
-.bouncing-balls-t__demo canvas {
-  display: block;
-  border-radius: 8px;
-}
-
-.bouncing-balls-t__code {
-  min-width: 0;
-}
-
-.bouncing-balls-t__bottom {
-  width: 100%;
-  line-height: 0;
-}
-
-.bouncing-balls-t__bottom canvas {
-  display: block;
-  width: 100%;
-  border-radius: 8px;
-}
-
-// Jekyll {% highlight %} blocks
-.post-body figure.highlight {
-  width: 100%;
-  max-width: 100%;
-  margin: 1.25rem 0;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  overflow: visible;
-  background: var(--bg1);
-}
-
-// Outer <pre> wraps a <table>; do not pre-wrap it
-.post-body figure.highlight > pre {
-  margin: 0;
-  padding: 0;
-  border: none;
-  border-radius: 0;
-  background: transparent;
-  overflow-x: visible;
-  white-space: normal;
-}
-
-.post-body figure.highlight .rouge-table {
-  width: 100%;
-  table-layout: fixed;
-  border-collapse: collapse;
-}
-
-.post-body .highlight td.gl {
-  width: 3rem;
-  padding: 0.85rem 0.5rem 0.85rem 1rem;
-  text-align: right;
-  vertical-align: top;
-  color: var(--fg1);
-  user-select: none;
-  border-right: 1px solid var(--line);
-}
-
-.post-body .highlight td.gl pre {
-  margin: 0;
-  padding: 0;
-  background: transparent;
-  border: none;
-  overflow: visible;
-}
-
-.post-body .highlight td:not(.gl) {
-  width: 100%;
-  vertical-align: top;
-}
-
-// {% highlight linenos %}: one gutter <pre> + one code <pre> - must stay pre (no wrap)
-.post-body figure.highlight:has(.lineno) .lineno,
-.post-body figure.highlight:has(.lineno) td:not(.gl) pre {
-  line-height: 1.45;
-  white-space: pre;
-  overflow-wrap: normal;
-}
-
-.post-body figure.highlight:has(.lineno) td:not(.gl) pre {
-  margin: 0;
-  padding: 0.85rem 1rem 0.85rem 0.75rem;
-  border: none;
-  background: transparent;
-  overflow-x: auto;
-}
-
-// {% highlight %} without line numbers: wrap long lines
-.post-body figure.highlight:not(:has(.lineno)) > pre,
-.post-body figure.highlight:not(:has(.lineno)) td:not(.gl) pre {
-  white-space: pre-wrap;
-  overflow-wrap: anywhere;
-  overflow-x: visible;
-}
-
-.post-body figure.highlight:not(:has(.lineno)) td:not(.gl) pre {
-  margin: 0;
-  padding: 0.85rem 1rem 0.85rem 0.75rem;
-  border: none;
-  background: transparent;
-}
-
-.post-body .bouncing-balls-t__code figure.highlight {
-  width: fit-content;
-  max-width: none;
-  margin: 0;
-}
-
-.post-body .bouncing-balls-t__code figure.highlight .rouge-table {
-  width: auto;
-  table-layout: auto;
-}
-
-.post-body .bouncing-balls-t__code figure.highlight:has(.lineno) td:not(.gl) {
-  width: auto;
-}
-
-.post-body .bouncing-balls-t__code figure.highlight:has(.lineno) td:not(.gl) pre {
-  overflow-x: visible;
-}
-
-@media (max-width: 720px) {
-  .bouncing-balls-t__top {
-    grid-template-columns: 1fr;
-    width: 100%;
-  }
-
-  .post-body .bouncing-balls-t__code figure.highlight {
-    width: 100%;
-  }
 }
 
