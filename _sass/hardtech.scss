@@ -397,6 +397,13 @@ body {
     }
   }
 
+  // Fenced ``` blocks (Vet output, bash) — wrap long lines
+  .highlighter-rouge pre {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    overflow-x: visible;
+  }
+
   figure.highlight {
     margin: 1.25rem 0;
     border: 1px solid var(--line);
@@ -408,6 +415,8 @@ body {
       padding: 0;
       border: none;
       background: transparent;
+      white-space: pre;
+      overflow-x: auto;
     }
 
     td:not(.gl) pre {
