@@ -3,7 +3,7 @@ layout: page
 title: About
 ---
 
-Hi! I'm JJ. I'm a software engineer, a reformed engineering manager, and sometimes {moral philosopher, writer, visual artist}.
+Hi! I'm Jean. I'm a software engineer, a reformed engineering manager, and sometimes {moral philosopher, writer, visual artist}.
 
 I'm looking for work! Contact me on [LinkedIn](https://www.linkedin.com/in/jjcodes/). I'm primarily looking for devrel/tech writing roles.
 {: .hiring-callout}
