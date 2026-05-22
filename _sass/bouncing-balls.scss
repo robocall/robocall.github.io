@@ -1,18 +1,8 @@
-// Demo is wider than prose (--max 44rem). Center 52rem on the viewport.
-@mixin demo-breakout {
-  width: 52rem;
-  max-width: calc(100vw - 2.7rem);
-  margin-left: calc(50vw - 26rem - (100vw - min(44rem, 100vw)) / 2 - 1.35rem);
-  margin-right: 0;
-}
-
 .bouncing-balls {
   display: grid;
   grid-template-columns: 280px 1fr;
   gap: 1rem;
   align-items: start;
-  margin: 2rem 0;
-  @include demo-breakout;
 }
 
 .bouncing-balls #canvas-wrap-buggy {
@@ -26,19 +16,4 @@
 
 .bouncing-balls figure.highlight {
   margin: 0;
-}
-
-// Wide broken demo (outside .bouncing-balls in the post)
-#canvas-wrap-buggy {
-  width: 600px;
-  max-width: 100%;
-  margin: 1.25rem 0 2rem;
-}
-
-@media (max-width: 720px) {
-  .bouncing-balls {
-    width: 100%;
-    max-width: none;
-    margin-left: 0;
-  }
 }
