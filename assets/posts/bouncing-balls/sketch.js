@@ -62,4 +62,4 @@ function bouncingBallSketch(
 }
 
 new p5(bouncingBallSketch("canvas-wrap-square", 280, 280, false, false));
-new p5(bouncingBallSketch("canvas-wrap-buggy", 0, 200, false, true));
+new p5(bouncingBallSketch("canvas-wrap-buggy", 600, 200, false, false));

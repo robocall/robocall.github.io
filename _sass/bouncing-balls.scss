@@ -28,15 +28,15 @@
   margin: 0;
 }
 
-// Wide canvas after hint copy (outside .bouncing-balls in the post)
+// Wide broken demo (outside .bouncing-balls in the post)
 #canvas-wrap-buggy {
+  width: 600px;
+  max-width: 100%;
   margin: 1.25rem 0 2rem;
-  @include demo-breakout;
 }
 
 @media (max-width: 720px) {
-  .bouncing-balls,
-  #canvas-wrap-buggy {
+  .bouncing-balls {
     width: 100%;
     max-width: none;
     margin-left: 0;
