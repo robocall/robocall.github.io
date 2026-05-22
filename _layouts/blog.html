@@ -2,8 +2,8 @@
 layout: default
 ---
 
-<header class="site-header site-header--compact">
-  <nav class="site-nav" aria-label="Primary">
+<header class="site-header site-header--compact measure">
+  <nav class="site-nav measure" aria-label="Primary">
     <a href="{{ '/' | relative_url }}">index</a>
     {% if site.data.home.navbar_entries %}
       {% for item in site.data.home.navbar_entries %}
@@ -15,6 +15,6 @@ layout: default
   <h1 class="site-title site-title--sm">{{ site.title }}</h1>
 </header>
 
-<main id="main" class="site-main">
+<main id="main" class="site-main measure">
   {% include post_list.html %}
 </main>

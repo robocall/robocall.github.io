@@ -2,9 +2,9 @@
 layout: default
 ---
 
-<header class="site-header site-header--home">
+<header class="site-header site-header--home measure">
   {% if site.data.home.navbar_entries %}
-    <nav class="site-nav site-nav--header-top" aria-label="Primary">
+    <nav class="site-nav site-nav--header-top measure" aria-label="Primary">
       {% for item in site.data.home.navbar_entries %}
         <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
       {% endfor %}
@@ -18,7 +18,7 @@ layout: default
   </div>
 </header>
 
-<main id="main" class="site-main">
+<main id="main" class="site-main measure">
   {{ content }}
   <section class="log" aria-labelledby="log-heading">
     <h2 id="log-heading" class="site-prompt log-prompt">
