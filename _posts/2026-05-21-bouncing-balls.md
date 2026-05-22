@@ -6,7 +6,7 @@ tags: [vet, ai, debugging, p5js, interactive]
 ---
 The biggest issue I run into as a software engineer is when my code doesn't do what I *think* it does. 
 
-I've been trying [**Vet**](https://github.com/imbue-ai/vet). Vet reviews your git diff plus a commit message, and asks an LLM whether your code change matches what you wanted. 
+I tried using [**Vet**](https://github.com/imbue-ai/vet) to solve this problem. Vet reviews your git diff plus a commit message, and asks an LLM whether your code change matches what you wanted. 
 
 In this walkthrough, I briefly go over how I set up and used vet to debug a deliberately broken p5.js sketch. Overall, I found it easy to use and surprising effective!
 

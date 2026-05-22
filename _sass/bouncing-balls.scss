@@ -3,6 +3,8 @@
   grid-template-columns: 280px 1fr;
   gap: 1rem;
   align-items: start;
+  margin: 2rem 0;
+  width: 100%;
 }
 
 .bouncing-balls #canvas-wrap-buggy {
@@ -16,4 +18,11 @@
 
 .bouncing-balls figure.highlight {
   margin: 0;
+}
+
+// Wide broken demo (outside .bouncing-balls in the post)
+#canvas-wrap-buggy {
+  width: 600px;
+  max-width: 100%;
+  margin: 1.25rem auto 2rem;
 }
