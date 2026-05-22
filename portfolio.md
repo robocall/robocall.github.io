@@ -5,14 +5,24 @@ title: Portfolio
 
 ## Selected works
 
+{% capture ol_tags %}{% include pill_tags.html tags="tutorial|open source" %}{% endcapture %}
+{% include portfolio_item.html
+  title="How to use Open Library Search"
+  url="https://openlibrary.org/search/howto/more"
+  img="/assets/portfolio/openlibrary.png"
+  alt="Open Library search docs"
+  tags=ol_tags
+  desc="Tutorial for power users on search query syntax and JSON APIs. Demo on curating a high-school civil rights reading list from library metadata."
+%}
+
 {% capture vet_tags %}{% include pill_tags.html tags="blog|AI|interactive" %}{% endcapture %}
 {% include portfolio_item.html
-  title="Debugging a bouncing ball with Vet"
+  title="Making sure what your code does you think it does, with Vet"
   url="/bouncing-balls"
   img="/assets/portfolio/bouncing-balls.png"
   alt="Bouncing ball p5.js demo with code snippet"
   tags=vet_tags
-  desc="Interactive blog post: a deliberately broken p5.js sketch, finding the edge-case bug with Imbue Vet and Gemini, with live demos and highlighted code."
+  desc="Blog post introducing engineers to Imbue's Vet, an AI code review tool, with a demo on fixing a p5.js sketch with Vet and Gemini."
 %}
 
 {% capture cli_tags %}{% include pill_tags.html tags="dev tools|AI" %}{% endcapture %}
@@ -26,15 +36,7 @@ title: Portfolio
 %}
 
 
-{% capture ol_tags %}{% include pill_tags.html tags="tutorial|open source" %}{% endcapture %}
-{% include portfolio_item.html
-  title="How to use Open Library Search"
-  url="https://openlibrary.org/search/howto"
-  img="/assets/portfolio/openlibrary.png"
-  alt="Open Library search docs"
-  tags=ol_tags
-  desc="Tutorial on search query syntax and JSON APIs. Demo on curating a high-school civil rights reading list from metadata."
-%}
+
 
 
 ## Beyond the repo
