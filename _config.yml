@@ -17,6 +17,9 @@ show_reading_time: true
 show_tags: true
 back_home_text: "cd .."
 
+github_url: "https://github.com/robocall"
+linkedin_url: "https://www.linkedin.com/in/jjcodes/"
+
 highlighter: rouge
 
 sass:

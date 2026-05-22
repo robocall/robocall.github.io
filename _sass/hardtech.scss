@@ -91,8 +91,54 @@ body {
 .site-nav {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 0.5rem 1rem;
+  width: 100%;
   font-size: 0.82rem;
+}
+
+.site-nav__social {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-left: auto;
+}
+
+.site-nav__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fg1);
+  line-height: 1;
+  text-decoration: none;
+
+  &:hover {
+    color: var(--accent);
+    text-shadow: 0 0 12px var(--glow);
+  }
+
+  svg {
+    display: block;
+  }
+}
+
+.site-nav__icon--linkedin {
+  .linkedin-icon__tile {
+    fill: var(--accent);
+  }
+
+  .linkedin-icon__mark {
+    fill: var(--bg0);
+  }
+
+  &:hover {
+    color: var(--fg1);
+    filter: drop-shadow(0 0 10px var(--glow));
+
+    .linkedin-icon__tile {
+      fill: #5ff7ff;
+    }
+  }
 }
 
 .site-nav--header-top,

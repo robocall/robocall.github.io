@@ -9,6 +9,7 @@ layout: default
         <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
       {% endfor %}
       <a href="{{ '/feed.xml' | relative_url }}">rss</a>
+      {% include social_links.html %}
     </nav>
   {% endif %}
   <div class="site-header__top">
