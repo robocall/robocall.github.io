@@ -44,6 +44,8 @@ function draw() {
 
 As a hint, here's the unhappy case — the bug only shows up on a wide, short canvas. I liked this as an example since this is the perfect use case for Vet: code that seems to work but fails on edge cases. 
 
+<div id="canvas-wrap-buggy"></div>
+
 If you found the bug in line 12, you're right! The ball position on the y axis should check against height, not width. 
 
 Let's see if Vet can find the bug.
