@@ -5,6 +5,16 @@ title: Portfolio
 
 ## Selected works
 
+{% capture vet_tags %}{% include pill_tags.html tags="blog|AI|interactive" %}{% endcapture %}
+{% include portfolio_item.html
+  title="Debugging a bouncing ball with Vet"
+  url="/bouncing-balls"
+  img="/assets/portfolio/bouncing-balls.png"
+  alt="Bouncing ball p5.js demo with code snippet"
+  tags=vet_tags
+  desc="Interactive blog post: a deliberately broken p5.js sketch, finding the edge-case bug with Imbue Vet and Gemini, with live demos and highlighted code."
+%}
+
 {% capture cli_tags %}{% include pill_tags.html tags="dev tools|AI" %}{% endcapture %}
 {% include portfolio_item.html
   title="Context-preserving translation for long texts with LLMs"
