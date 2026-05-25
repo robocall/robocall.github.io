@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Type metrics</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header>
+    <h1>Type metrics</h1>
+    <p class="subtitle">
+      Drop your image, align the guides, set your em span, and read the metrics.
+    </p>
+  </header>
+
+  <div class="workspace">
+    <aside class="readout" aria-live="polite">
+      <section class="scale-section">
+        <p class="scale-help">
+          Set this <strong>em span</strong> (ascender to descender). Metrics below update automatically.
+        </p>
+        <label class="em-span-field" for="em-units">
+          <span class="em-span-field__label">Em span</span>
+          <input type="number" id="em-units" value="1000" min="1" step="1" inputmode="numeric"
+            aria-describedby="scale-help-text" />
+        </label>
+        <p id="scale-help-text" class="scale-status"></p>
+      </section>
+
+      <section class="metrics-section">
+        <h2>Metrics</h2>
+        <dl id="metrics-list"></dl>
+        <p class="hint">
+          Edit a value or drag a guide. Baseline is always 0 (drag its guide to move it).
+        </p>
+      </section>
+
+      <div class="actions">
+        <button type="button" id="reset-lines">Reset guides</button>
+        <button type="button" id="clear-image" disabled>Clear image</button>
+      </div>
+    </aside>
+
+    <div class="stage">
+      <div id="drop-zone" class="drop-zone">
+          <p>Drag an image here</p>
+          <p class="drop-hint">or click to replace the default specimen</p>
+        <input type="file" id="file-input" accept="image/*" hidden />
+      </div>
+
+      <div id="em-box" class="em-box hidden" aria-label="1000 pixel em box">
+        <div class="em-box__inner">
+          <img id="specimen" alt="Type specimen" draggable="false" />
+          <div id="em-band" class="em-band hidden" aria-hidden="true"></div>
+          <div id="guides" class="guides"></div>
+        </div>
+        <div id="em-scale" class="em-box__scale" aria-hidden="true"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
