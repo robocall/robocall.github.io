@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spend your Claude quota before it evaporates — mngr</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Libre+Caslon+Text:ital@0;1&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      /* Imbue blog theme (from the live page's applied tokens) */
+      --bg: #cfc7b3;
+      /* strength (page background) */
+      --ink: #000000;
+      /* primary */
+      --body: #14130d;
+      --muted: #524d3f;
+      --faint: #6d6856;
+      --line: #b4ab95;
+      --accent: #000000;
+      /* accent (this page's theme) */
+      --accent-soft: #e9ecd9;
+      /* secondary / inspiration */
+      --pop: #f50d00;
+      /* confidence red, used sparingly */
+      --green: #2f6f4f;
+      --red: #c8372f;
+      --amber: #8a5a0a;
+      --code-bg: #1b1a13;
+      --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      --sans: "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --display: "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --serif-text: "Libre Caslon Text", "Hoefler Text", Georgia, serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--body);
+      font-family: var(--mono);
+      font-size: 15.5px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    a {
+      color: var(--ink);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    a:hover {
+      opacity: .65;
+    }
+
+    code {
+      font-family: var(--mono);
+      font-size: 0.86em;
+      background: rgba(0, 0, 0, 0.07);
+      color: var(--ink);
+      padding: 2px 6px;
+      border-radius: 5px;
+    }
+
+    /* masthead */
+    .top {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .top .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 62px;
+    }
+
+    .brand {
+      font-family: var(--mono);
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+    }
+
+    .brand span {
+      color: var(--accent);
+    }
+
+    .top nav a {
+      color: var(--muted);
+      font-size: 13px;
+      margin-left: 20px;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .top nav a:hover {
+      color: var(--ink);
+      opacity: 1;
+    }
+
+    header.post {
+      padding: 64px 0 8px;
+    }
+
+    .eyebrow {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--ink);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin: 0 0 22px;
+    }
+
+    h1 {
+      font-family: var(--display);
+      font-weight: 600;
+      font-size: clamp(34px, 6vw, 56px);
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin: 0 0 24px;
+    }
+
+    .meta {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      color: var(--faint);
+      font-size: 13px;
+      margin-bottom: 8px;
+      font-family: var(--mono);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .meta .dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--faint);
+    }
+
+    .dek {
+      font-family: var(--mono);
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--muted);
+      margin: 24px 0 0;
+    }
+
+    article {
+      padding: 24px 0 0;
+    }
+
+    article h2 {
+      font-family: var(--display);
+      font-weight: 600;
+      font-size: clamp(26px, 4vw, 36px);
+      line-height: 1.12;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+      margin: 56px 0 14px;
+    }
+
+    article h3 {
+      font-family: var(--display);
+      font-weight: 600;
+      font-size: 19px;
+      color: var(--ink);
+      margin: 30px 0 6px;
+    }
+
+    article p {
+      margin: 18px 0;
+    }
+
+    article>.wrap,
+    article p,
+    article ul,
+    article ol {
+      color: var(--body);
+    }
+
+    ul,
+    ol {
+      padding-left: 24px;
+    }
+
+    li {
+      margin: 10px 0;
+    }
+
+    strong {
+      color: var(--ink);
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--line);
+      margin: 48px 0;
+    }
+
+    .lead-num {
+      counter-reset: cool;
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .lead-num>li {
+      counter-increment: cool;
+      position: relative;
+      padding-left: 52px;
+      margin: 26px 0;
+    }
+
+    .lead-num>li::before {
+      content: counter(cool);
+      position: absolute;
+      left: 0;
+      top: 2px;
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-family: var(--mono);
+      font-weight: 700;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lead-num h3 {
+      margin: 0 0 4px;
+    }
+
+    .lead-num p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 16.5px;
+    }
+
+    blockquote {
+      margin: 28px 0;
+      padding: 6px 0 6px 24px;
+      border-left: 3px solid var(--accent);
+      color: var(--ink);
+      font-family: var(--serif-text);
+      font-size: 24px;
+      font-style: italic;
+      line-height: 1.45;
+    }
+
+    .callout {
+      background: var(--accent-soft);
+      border: 1px solid #c2cab1;
+      border-radius: 12px;
+      padding: 16px 18px;
+      font-size: 15px;
+      color: #2c3320;
+      margin: 26px 0;
+    }
+
+    .callout b {
+      color: var(--ink);
+    }
+
+    /* markdown callouts (blockquotes authored in POST.md) */
+    #post-body blockquote {
+      margin: 26px 0;
+      padding: 16px 18px;
+      border: 1px solid #c2cab1;
+      border-left: 3px solid var(--accent);
+      border-radius: 12px;
+      background: var(--accent-soft);
+      color: #2c3320;
+      font-family: var(--mono);
+      font-size: 15px;
+      font-style: normal;
+      line-height: 1.7;
+    }
+
+    #post-body blockquote p {
+      margin: 0;
+    }
+
+    #post-body blockquote strong,
+    #post-body blockquote b {
+      color: var(--ink);
+    }
+
+    /* Ev figure: circular photo offset onto a red curvy blob, floated into the margin */
+    .ev-figure {
+      position: relative;
+      width: 184px;
+      height: 184px;
+      float: right;
+      margin: 6px -40px 14px 28px;
+      shape-outside: circle(50%);
+    }
+
+    .ev-figure .ev-blob {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      will-change: transform;
+      transition: transform 0.3s ease-out;
+    }
+
+    .ev-figure .ev-photo {
+      position: absolute;
+      top: 18px;
+      left: 10px;
+      width: 116px;
+      height: 116px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid var(--bg);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+      will-change: transform;
+      transition: transform 0.3s ease-out;
+    }
+
+    .ev-figure figcaption {
+      position: absolute;
+      top: 138px;
+      left: 92px;
+      transform: translateX(-50%);
+      display: inline-block;
+      white-space: nowrap;
+      padding: 2px 10px;
+      border-radius: 999px;
+      background: rgba(207, 199, 179, 0.45);
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+      text-shadow: 0 1px 1px rgba(207, 199, 179, 0.6);
+      will-change: transform;
+      transition: transform 0.3s ease-out;
+    }
+
+    @media (max-width: 720px) {
+      .ev-figure {
+        float: none;
+        margin: 18px auto 22px;
+      }
+    }
+
+    /* content images authored in POST.md (scoped so it won't touch Ev's photo) */
+    /* break out wider than the text column so detail is legible */
+    #post-body p > img {
+      display: block;
+      width: min(1080px, 94vw);
+      max-width: none;
+      height: auto;
+      margin: 28px 0 28px 50%;
+      transform: translateX(-50%);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+    }
+
+    /* fenced code blocks rendered from markdown */
+    #post-body pre code {
+      background: none;
+      color: inherit;
+      padding: 0;
+      border-radius: 0;
+      font-size: inherit;
+    }
+
+    /* code */
+    .codewrap {
+      position: relative;
+      margin: 24px 0;
+    }
+
+    pre {
+      background: var(--code-bg);
+      border-radius: 12px;
+      padding: 20px;
+      overflow-x: auto;
+      font-family: var(--mono);
+      font-size: 13px;
+      line-height: 1.7;
+      color: #c8cee0;
+      margin: 0;
+    }
+
+    pre .cm {
+      color: #5d6577;
+      font-style: italic;
+    }
+
+    pre .kw {
+      color: #c792ea;
+    }
+
+    pre .st {
+      color: #c3e88d;
+    }
+
+    .copy {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      cursor: pointer;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: #9aa0ad;
+      background: #1c1f2a;
+      border: 1px solid #2a2e3a;
+      border-radius: 7px;
+      padding: 5px 10px;
+    }
+
+    .copy:hover {
+      color: #fff;
+    }
+
+    .cap {
+      font-size: 14px;
+      color: var(--faint);
+      margin-top: 8px;
+      text-align: center;
+    }
+
+    /* interactive widget */
+    .widget {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      margin: 28px 0;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03), 0 8px 30px rgba(20, 24, 40, 0.05);
+    }
+
+    .widget-head {
+      background: #d9d2c0;
+      border-bottom: 1px solid var(--line);
+      padding: 12px 18px;
+      font-family: var(--mono);
+      font-size: 12.5px;
+      color: var(--muted);
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .widget-head .dotrow {
+      display: flex;
+      gap: 6px;
+      margin-right: 6px;
+    }
+
+    .widget-head .dotrow i {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .sim-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+    }
+
+    @media (max-width: 680px) {
+      .sim-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .sim-controls {
+      padding: 22px;
+      border-right: 1px solid var(--line);
+    }
+
+    @media (max-width: 680px) {
+      .sim-controls {
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+      }
+    }
+
+    .sim-out {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .ctrl {
+      margin-bottom: 16px;
+    }
+
+    .ctrl:last-child {
+      margin-bottom: 0;
+    }
+
+    .ctrl label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    .ctrl label .k {
+      color: var(--muted);
+      font-family: var(--mono);
+    }
+
+    .ctrl label .v {
+      color: var(--ink);
+      font-family: var(--mono);
+      font-weight: 700;
+    }
+
+    input[type=range] {
+      width: 100%;
+      accent-color: var(--accent);
+    }
+
+    .seg {
+      display: flex;
+      gap: 6px;
+    }
+
+    .seg button {
+      flex: 1;
+      font-family: var(--mono);
+      font-size: 12px;
+      cursor: pointer;
+      background: #d9d2c0;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 8px 6px;
+    }
+
+    .seg button.active {
+      background: var(--ink);
+      color: var(--bg);
+      border-color: var(--ink);
+    }
+
+    .verdict {
+      border-radius: 12px;
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      background: #d9d2c0;
+    }
+
+    .verdict .badge {
+      display: inline-block;
+      font-family: var(--mono);
+      font-weight: 700;
+      font-size: 15px;
+      padding: 4px 12px;
+      border-radius: 8px;
+      letter-spacing: 0.04em;
+    }
+
+    .badge.START {
+      background: #e4efe7;
+      color: var(--green);
+    }
+
+    .badge.STOP {
+      background: #fde3df;
+      color: var(--red);
+    }
+
+    .badge.KEEP {
+      background: var(--accent-soft);
+      color: var(--amber);
+    }
+
+    .btnrow {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 24px 0 8px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--mono);
+      font-size: 14px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      border: 1.5px solid var(--accent);
+      background: var(--accent);
+      color: var(--bg);
+      transition: all .14s ease;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: var(--bg);
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .btn.ghost {
+      background: transparent;
+      color: var(--ink);
+      border-color: var(--ink);
+    }
+
+    .btn.ghost:hover {
+      background: var(--ink);
+      color: var(--bg);
+    }
+
+    .verdict .why {
+      margin: 12px 0 0;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .verdict .why code {
+      font-size: 12px;
+      background: rgba(0, 0, 0, 0.07);
+    }
+
+    .action {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .action .cmd {
+      display: block;
+      font-family: var(--mono);
+      font-size: 12.5px;
+      color: #cdd6ff;
+      background: var(--code-bg);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      white-space: pre-wrap;
+    }
+
+    canvas {
+      width: 100%;
+      height: auto;
+      display: block;
+      background: #ddd6c4;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      margin-top: 8px;
+    }
+
+    .legend {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+      font-size: 12.5px;
+      color: var(--muted);
+      font-family: var(--mono);
+    }
+
+    .legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .swatch {
+      width: 14px;
+      height: 3px;
+      border-radius: 2px;
+      display: inline-block;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      margin-top: 60px;
+      padding: 30px 0 70px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .fn {
+      font-size: 14.5px;
+      color: var(--muted);
+    }
+
+    .fn li {
+      margin: 8px 0;
+    }
+
+    /* case-study additions */
+    .ph {
+      background: transparent;
+      color: inherit;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin: 30px 0 8px;
+    }
+
+    @media (max-width: 680px) {
+      .stats {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .stat {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 22px;
+      background: #d9d2c0;
+    }
+
+    .stat .num {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: clamp(30px, 5vw, 46px);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+
+    .stat .lbl {
+      font-family: var(--mono);
+      font-size: 12.5px;
+      color: var(--muted);
+      margin-top: 12px;
+      line-height: 1.55;
+    }
+
+    .prlist {
+      list-style: none;
+      padding-left: 0;
+      margin: 20px 0;
+    }
+
+    .prlist li {
+      display: flex;
+      gap: 12px;
+      align-items: baseline;
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--ink);
+      border-radius: 8px;
+      padding: 11px 14px;
+      margin: 8px 0;
+      background: #d9d2c0;
+    }
+
+    .prlist .pr {
+      font-family: var(--mono);
+      font-size: 12.5px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .steps {
+      counter-reset: stp;
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .steps>li {
+      counter-increment: stp;
+      position: relative;
+      padding-left: 54px;
+      margin: 24px 0;
+    }
+
+    .steps>li::before {
+      content: counter(stp);
+      position: absolute;
+      left: 0;
+      top: -2px;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--ink);
+      color: var(--bg);
+      font-family: var(--mono);
+      font-weight: 700;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .steps h3 {
+      margin: 0 0 6px;
+    }
+
+    .steps p {
+      margin: 4px 0 0;
+      color: var(--muted);
+    }
+
+    .diagram {
+      border: 1px dashed #8f876f;
+      border-radius: 14px;
+      padding: 44px 22px;
+      text-align: center;
+      background: #d9d2c0;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 13px;
+      line-height: 1.7;
+      margin: 24px 0;
+    }
+
+    .cta {
+      border: 1.5px solid var(--ink);
+      border-radius: 18px;
+      padding: 30px;
+      background: var(--accent-soft);
+      margin: 40px 0 8px;
+    }
+
+    .cta h2 {
+      margin-top: 0;
+    }
+
+    h2[id] {
+      scroll-margin-top: 24px;
+    }
+
+    .toc {
+      position: fixed;
+      top: 96px;
+      left: 32px;
+      width: 212px;
+      font-family: var(--mono);
+      z-index: 5;
+    }
+
+    .toc-title {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--faint);
+      font-size: 11px;
+      margin-bottom: 12px;
+    }
+
+    .toc ol {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      counter-reset: toc;
+    }
+
+    .toc li {
+      counter-increment: toc;
+    }
+
+    .toc a {
+      display: block;
+      position: relative;
+      padding: 7px 0 7px 28px;
+      font-size: 12px;
+      line-height: 1.4;
+      color: var(--muted);
+      text-decoration: none;
+      border-left: 2px solid var(--line);
+    }
+
+    .toc a::before {
+      content: counter(toc, decimal-leading-zero);
+      position: absolute;
+      left: 8px;
+      color: var(--faint);
+    }
+
+    .toc a:hover {
+      color: var(--ink);
+      opacity: 1;
+    }
+
+    .toc a.active {
+      color: var(--ink);
+      border-left-color: var(--ink);
+    }
+
+    @media (max-width: 1180px) {
+      .toc {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="toc" aria-label="Table of contents">
+    <div class="toc-title">Contents</div>
+    <ol>
+      <li><a href="#how-to-use-it">How to use it</a></li>
+      <li><a href="#how-it-works">How it works</a></li>
+      <li><a href="#under-the-hood-what-mngr-does">Under the hood</a></li>
+      <li><a href="#donate-your-idle-quota-to-science">Donate your idle quota</a></li>
+    </ol>
+  </nav>
+
+  <div class="top">
+    <div class="wrap">
+      <div class="brand">imbue · <span>mngr</span></div>
+      <nav><a href="https://github.com/imbue-ai/mngr" target="_blank" rel="noopener">GitHub</a><a
+          href="https://imbue.com/blog/mngr" target="_blank" rel="noopener">Blog</a></nav>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <header class="post">
+      <h1>Use your unused Claude tokens for good</h1>
+      <p class="dek">Every day, Claude quota you've already paid for expires unused. We wired up mngr to
+        automatically use the leftover tokens to improve unit tests or donate to open source biomedical research.</p>
+    </header>
+  </div>
+
+  <article>
+    <div class="wrap" id="post-body"></div>
+  </article>
+
+  <footer>
+    <div class="wrap">
+      Adapted from the mngr <a
+        href="https://github.com/imbue-ai/mngr/blob/d5d5d6c352bfd18903da11afe5cc5bba3b9c6258/libs/mngr_usage/docs/cron_recipes.md#use-up-an-about-to-expire-5h-window"
+        target="_blank" rel="noopener">cron automation recipes</a> and the <a href="https://imbue.com/blog/mngr"
+        target="_blank" rel="noopener">mngr launch post</a>. The <code>jq</code> thresholds shown are reproduced
+      verbatim from the recipe.
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js"></script>
+  <script>
+    // Wire up interactive bits that depend on the rendered post body.
+    function initPostInteractions() {
+      const copyBtn = document.getElementById("copyBtn");
+      if (copyBtn) {
+        copyBtn.addEventListener("click", () => {
+          navigator.clipboard.writeText(document.getElementById("code").innerText).then(() => {
+            copyBtn.textContent = "copied!";
+            setTimeout(() => (copyBtn.textContent = "copy"), 1400);
+          });
+        });
+      }
+
+      const tocLinks = [...document.querySelectorAll(".toc a")];
+      const tocTargets = tocLinks
+        .map((a) => document.getElementById(a.getAttribute("href").slice(1)))
+        .filter(Boolean);
+      if (tocLinks.length && tocTargets.length) {
+        const spy = () => {
+          let current = tocTargets[0];
+          for (const section of tocTargets) {
+            if (section.getBoundingClientRect().top <= 120) current = section;
+          }
+          tocLinks.forEach((a) =>
+            a.classList.toggle("active", a.getAttribute("href").slice(1) === current.id)
+          );
+        };
+        document.addEventListener("scroll", spy, { passive: true });
+        window.addEventListener("resize", spy);
+        spy();
+      }
+
+      // Scroll-driven drift for the Ev figure: the blob and photo slide left at
+      // slightly different rates, like papers being nudged across a desk.
+      const fig = document.querySelector(".ev-figure");
+      if (fig) {
+        const blob = fig.querySelector(".ev-blob");
+        const photo = fig.querySelector(".ev-photo");
+        const caption = fig.querySelector("figcaption");
+        let ticking = false;
+        const drift = () => {
+          const r = fig.getBoundingClientRect();
+          const vh = window.innerHeight || document.documentElement.clientHeight;
+          const delta = vh / 2 - (r.top + r.height / 2);
+          const off = Math.max(-64, Math.min(64, delta * 0.09));
+          const photoShift = -off * 0.45;
+          if (blob) blob.style.transform = "translateX(" + (-off).toFixed(1) + "px)";
+          if (photo) photo.style.transform = "translateX(" + photoShift.toFixed(1) + "px)";
+          if (caption)
+            caption.style.transform =
+              "translateX(calc(-50% + " + photoShift.toFixed(1) + "px))";
+          ticking = false;
+        };
+        const onScroll = () => {
+          if (!ticking) {
+            ticking = true;
+            requestAnimationFrame(drift);
+          }
+        };
+        document.addEventListener("scroll", onScroll, { passive: true });
+        window.addEventListener("resize", onScroll);
+        drift();
+      }
+    }
+
+    // The post body is authored in POST.md and rendered here with marked.
+    const postBody = document.getElementById("post-body");
+    marked.setOptions({ gfm: true, breaks: false });
+    fetch("POST.md", { cache: "no-store" })
+      .then((r) => {
+        if (!r.ok) throw new Error("HTTP " + r.status);
+        return r.text();
+      })
+      .then((md) => {
+        postBody.innerHTML = marked.parse(md);
+        // Give markdown headings stable, slug-based ids so the TOC can link to them.
+        postBody.querySelectorAll("h2, h3").forEach((h) => {
+          if (!h.id) {
+            h.id = h.textContent
+              .trim()
+              .toLowerCase()
+              .replace(/['’]/g, "")
+              .replace(/[^a-z0-9]+/g, "-")
+              .replace(/^-+|-+$/g, "");
+          }
+        });
+        initPostInteractions();
+      })
+      .catch(() => {
+        postBody.innerHTML =
+          '<div class="callout"><b>Couldn\'t load POST.md.</b> This page renders its content from ' +
+          "<code>POST.md</code> at load time, which browsers block over <code>file://</code>. " +
+          "Serve the folder over HTTP and reload, e.g.: <code>python3 -m http.server</code> then open " +
+          "<code>http://localhost:8000/</code>.</div>";
+      });
+  </script>
+</body>
+
+</html>
